@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: jobmarket-engine
+
+  datasource:
+    # Locally: set these in IntelliJ Run Configuration → Environment Variables
+    # On Render: set these in Render Dashboard → Environment
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/jobmarket}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres123}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+server:
+  port: ${PORT:8083}
+
+logging:
+  level:
+    com.jobmarket: DEBUG
+    org.hibernate.SQL: DEBUG
